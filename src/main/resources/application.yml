@@ -1,0 +1,44 @@
+#数据库
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/****?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+      username: root
+      password: 123456
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      # MySQL 8.x: com.mysql.cj.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  #上传文件大小设置
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /WEB-INF/views/
+#    static-path-pattern: /static/**
+#  resources:
+#    static-locations: classpath:/resources/static/
+  thymeleaf:
+    cache: false
+    enabled: false
+#tk-Mybatis
+mybatis:
+  #实体类的存放路径
+  type-aliases-package: com.yuyang.template.po
+  mapper-locations: classpath:mapper/*.xml
+  # spring boot集成mybatis的方式打印sql
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#端口
+server:
+  port: 8080
+
+#上传路径
+file:
+  staticAccessPath: /upload/**
+  uploadFolder: E:/JAVA/upload/
