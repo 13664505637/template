@@ -96,56 +96,56 @@ public class ExcelUtiles {
 
     //SampleInfoDownExt是需要自己建的一个增强类
     // 导出
-    public static XSSFWorkbook downLoadExcelModel(InputStream in, String sheetName, List<SampleInfoDownExt> list)
-            throws Exception {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        // 创建一个新的Excel文件
-        XSSFWorkbook workbook = new XSSFWorkbook(in);
-        // 填充内容
-        if (list != null) {
-            // 创建Excel文件的工作表
-            XSSFSheet sheet = workbook.getSheet(sheetName);
-            int lastRow = sheet.getLastRowNum() + 1;
-            createFont(workbook);
-            for (int i = 0; i < list.size(); i++) {
-                Row row = null;// 创建行
-                Cell cell = null;// 创建列
-                row = sheet.createRow(lastRow + i);
-                SampleInfoDownExt s = list.get(i);
-                // 创建内容
-                cell = row.createCell(0);
-                cell.setCellValue(s.getSampleId());// 样品编号
-                cell.setCellStyle(fontStyle2);
-
-                cell = row.createCell(1);
-                cell.setCellValue(s.getProvince() + s.getCity() + s.getCounty());// 地点
-                cell.setCellStyle(fontStyle2);
-
-                cell = row.createCell(2);
-                cell.setCellValue(s.getCropSpeciesName());// 品种
-                cell.setCellStyle(fontStyle2);
-
-                cell = row.createCell(3);
-                cell.setCellValue(s.getSamplingTime());// 取样时间
-                cell.setCellStyle(fontStyle2);
-
-                cell = row.createCell(4);
-                cell.setCellValue(s.getInputTime());// 录入时间
-                cell.setCellStyle(fontStyle2);
-
-                cell = row.createCell(5);
-                cell.setCellValue(s.getPollutionRate());// 污染率
-                cell.setCellStyle(fontStyle2);
-
-                cell = row.createCell(6);
-                cell.setCellValue(s.getToxinName());// 主要毒素
-                cell.setCellStyle(fontStyle2);
-            }
-        }
-        // 设置Excel的字体样式
-        createFont(workbook);
-        return workbook;
-    }
+//    public static XSSFWorkbook downLoadExcelModel(InputStream in, String sheetName, List<SampleInfoDownExt> list)
+////            throws Exception {
+////        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+////        // 创建一个新的Excel文件
+////        XSSFWorkbook workbook = new XSSFWorkbook(in);
+////        // 填充内容
+////        if (list != null) {
+////            // 创建Excel文件的工作表
+////            XSSFSheet sheet = workbook.getSheet(sheetName);
+////            int lastRow = sheet.getLastRowNum() + 1;
+////            createFont(workbook);
+////            for (int i = 0; i < list.size(); i++) {
+////                Row row = null;// 创建行
+////                Cell cell = null;// 创建列
+////                row = sheet.createRow(lastRow + i);
+////                SampleInfoDownExt s = list.get(i);
+////                // 创建内容
+////                cell = row.createCell(0);
+////                cell.setCellValue(s.getSampleId());// 样品编号
+////                cell.setCellStyle(fontStyle2);
+////
+////                cell = row.createCell(1);
+////                cell.setCellValue(s.getProvince() + s.getCity() + s.getCounty());// 地点
+////                cell.setCellStyle(fontStyle2);
+////
+////                cell = row.createCell(2);
+////                cell.setCellValue(s.getCropSpeciesName());// 品种
+////                cell.setCellStyle(fontStyle2);
+////
+////                cell = row.createCell(3);
+////                cell.setCellValue(s.getSamplingTime());// 取样时间
+////                cell.setCellStyle(fontStyle2);
+////
+////                cell = row.createCell(4);
+////                cell.setCellValue(s.getInputTime());// 录入时间
+////                cell.setCellStyle(fontStyle2);
+////
+////                cell = row.createCell(5);
+////                cell.setCellValue(s.getPollutionRate());// 污染率
+////                cell.setCellStyle(fontStyle2);
+////
+////                cell = row.createCell(6);
+////                cell.setCellValue(s.getToxinName());// 主要毒素
+////                cell.setCellStyle(fontStyle2);
+////            }
+////        }
+////        // 设置Excel的字体样式
+////        createFont(workbook);
+////        return workbook;
+////    }
 
     private static XSSFCellStyle fontStyle2;
 
